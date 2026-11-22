@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FILMZONE.LK - Watch Movies and TV Series with Sinhala Subtitles. Premium streaming platform for Sri Lankan movie lovers.">
+    <meta name="keywords" content="Sinhala subtitles, Sri Lankan movies, Hollywood, Bollywood, Korean movies, streaming">
+    <title>FILMZONE.LK - Movies & TV Series with Sinhala Subtitles</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-logo">FILM<span>ZONE</span>.LK</div>
+            <div class="loader-bar"><div class="loader-progress"></div></div>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                FILM<span>ZONE</span>.LK
+            </a>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="movies.html" class="nav-link"><i class="fas fa-film"></i> Movies</a></li>
+                <li><a href="series.html" class="nav-link"><i class="fas fa-tv"></i> TV Series</a></li>
+                <li><a href="movies.html?filter=latest" class="nav-link"><i class="fas fa-clock"></i> Latest</a></li>
+                <li><a href="movies.html?filter=sinhala" class="nav-link"><i class="fas fa-closed-captioning"></i> Sinhala Sub</a></li>
+                <li><a href="movies.html?filter=categories" class="nav-link"><i class="fas fa-th"></i> Categories</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <div class="search-box" id="searchBox">
+                    <input type="text" id="searchInput" placeholder="Search movies, series..." autocomplete="off">
+                    <button class="search-btn" id="searchBtn"><i class="fas fa-search"></i></button>
+                    <div class="search-results" id="searchResults"></div>
+                </div>
+
+                <a href="watchlist.html" class="nav-icon" title="Favorites">
+                    <i class="fas fa-heart"></i>
+                    <span class="badge" id="favCount">0</span>
+                </a>
+
+                <a href="login.html" class="btn-login" id="loginBtn">
+                    <i class="fas fa-user"></i> Login
+                </a>
+
+                <button class="mobile-toggle" id="mobileToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-slider" id="heroSlider">
+            <!-- Hero slides will be injected by JS -->
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-badge"><i class="fas fa-star"></i> FEATURED TODAY</div>
+            <h1 class="hero-title" id="heroTitle">Loading...</h1>
+            <div class="hero-meta">
+                <span class="hero-rating"><i class="fas fa-star"></i> <span id="heroRating">0.0</span></span>
+                <span class="hero-year" id="heroYear">2024</span>
+                <span class="hero-duration" id="heroDuration">2h 30m</span>
+                <span class="hero-genre" id="heroGenre">Action</span>
+                <span class="hero-quality">4K</span>
+            </div>
+            <p class="hero-description" id="heroDescription">Loading movie details...</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" id="heroWatchBtn">
+                    <i class="fas fa-play"></i> Watch Now
+                </button>
+                <button class="btn btn-secondary" id="heroDetailsBtn">
+                    <i class="fas fa-info-circle"></i> More Details
+                </button>
+            </div>
+        </div>
+        <div class="hero-controls">
+            <button class="hero-arrow hero-prev" id="heroPrev"><i class="fas fa-chevron-left"></i></button>
+            <button class="hero-arrow hero-next" id="heroNext"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="hero-indicators" id="heroIndicators"></div>
+    </section>
+
+    <!-- Movie Sections Container -->
+    <main class="main-content">
+
+        <!-- Latest Movies -->
+        <section class="movie-section" id="latestMovies">
+            <div class="section-header">
+                <h2 class="section-title"><i class="fas fa-clock"></i> Latest Movies</h2>
+                <a href="movies.html?filter=latest" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="movie-slider" id="latestSlider">
+                <!-- Movies injected by JS -->
+            </div>
+        </section>
+
+        <!-- Trending Movies -->
+        <section class="movie-section" id="trendingMovies">
+            <div class="section-header">
+                <h2 class="section-title"><i class="fas fa-fire"></i> Trending Now</h2>
+                <a href="movies.html?filter=trending" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="movie-slider" id="trendingSlider"></div>
+        </section>
+
+        <!-- Popular Movies -->
+        <section class="movie-section" id="popularMovies">
+            <div class="section-header">
+                <h2 class="section-title"><i class="fas fa-bolt"></i> Popular on FILMZONE</h2>
+                <a href="movies.html?filter=popular" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="movie-slider" id="popularSlider"></div>
+        </section>
+
+        <!-- Top Rated Movies -->
+        <section class="movie-section" id="topRatedMovies">
+            <div class="section-header">
+                <h2 class="section-title"><i class="fas fa-trophy"></i> Top Rated</h2>
+                <a href="movies.html?filter=top-rated" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="movie-slider" id="topRatedSlider"></div>
+        </section>
+
+        <!-- Hollywood Movies -->
+        <section class="movie-section" id="hollywoodMovies">
+            <div class="section-header">
+                <h2 class="section-title"><i class="fas fa-star"></i> Hollywood Blockbusters</h2>
+                <a href="movies.html?genre=hollywood" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="movie-slider" id="hollywoodSlider"></div>
+        </section>
+
+        <!-- Bollywood Movies -->
+        <section class="movie-section" id="bollywoodMovies">
+            <div class="section-header">
+                <h2 class="section-title"><i class="fas fa-music"></i> Bollywood Hits</h2>
+                <a href="movies.html?genre=bollywood" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="movie-slider" id="bollywoodSlider"></div>
+        </section>
+
+        <!-- Korean Movies -->
+        <section class="movie-section" id="koreanMovies">
+            <div class="section-header">
+                <h2 class="section-title"><i class="fas fa-dragon"></i> Korean Dramas & Movies</h2>
+                <a href="movies.html?genre=korean" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="movie-slider" id="koreanSlider"></div>
+        </section>
+
+        <!-- Action Movies -->
+        <section class="movie-section" id="actionMovies">
+            <div class="section-header">
+                <h2 class="section-title"><i class="fas fa-fist-raised"></i> Action & Adventure</h2>
+                <a href="movies.html?genre=action" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="movie-slider" id="actionSlider"></div>
+        </section>
+
+        <!-- Horror Movies -->
+        <section class="movie-section" id="horrorMovies">
+            <div class="section-header">
+                <h2 class="section-title"><i class="fas fa-ghost"></i> Horror & Thriller</h2>
+                <a href="movies.html?genre=horror" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="movie-slider" id="horrorSlider"></div>
+        </section>
+
+        <!-- Comedy Movies -->
+        <section class="movie-section" id="comedyMovies">
+            <div class="section-header">
+                <h2 class="section-title"><i class="fas fa-laugh"></i> Comedy</h2>
+                <a href="movies.html?genre=comedy" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="movie-slider" id="comedySlider"></div>
+        </section>
+
+        <!-- Romance Movies -->
+        <section class="movie-section" id="romanceMovies">
+            <div class="section-header">
+                <h2 class="section-title"><i class="fas fa-heart"></i> Romance</h2>
+                <a href="movies.html?genre=romance" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="movie-slider" id="romanceSlider"></div>
+        </section>
+
+        <!-- Animation Movies -->
+        <section class="movie-section" id="animationMovies">
+            <div class="section-header">
+                <h2 class="section-title"><i class="fas fa-palette"></i> Animation</h2>
+                <a href="movies.html?genre=animation" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="movie-slider" id="animationSlider"></div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3 class="footer-logo">FILM<span>ZONE</span>.LK</h3>
+                    <p class="footer-about">
+                        Your ultimate destination for movies and TV series with Sinhala subtitles. 
+                        Experience premium entertainment crafted for Sri Lankan audiences.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="movies.html">Movies</a></li>
+                        <li><a href="series.html">TV Series</a></li>
+                        <li><a href="watchlist.html">My Watchlist</a></li>
+                        <li><a href="movies.html?filter=latest">Latest Releases</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Categories</h4>
+                    <ul class="footer-links">
+                        <li><a href="movies.html?genre=action">Action</a></li>
+                        <li><a href="movies.html?genre=comedy">Comedy</a></li>
+                        <li><a href="movies.html?genre=horror">Horror</a></li>
+                        <li><a href="movies.html?genre=romance">Romance</a></li>
+                        <li><a href="movies.html?genre=animation">Animation</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p class="footer-newsletter-text">Subscribe to get updates on new releases.</p>
+                    <form class="footer-newsletter" id="newsletterForm">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 FILMZONE.LK - All Rights Reserved. Made with <i class="fas fa-heart" style="color:#E50914;"></i> in Sri Lanka</p>
+                <p class="footer-disclaimer">This is a demonstration website. All movie data is for illustrative purposes only.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" title="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/movies.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/watchlist.js"></script>
+
+</body>
+</html>
